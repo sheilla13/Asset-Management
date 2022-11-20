@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Form</title>
+
+    <style>
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid CornflowerBlue;
+            border-radius: 4px;
+        }
+
+        input[type=submit]{
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Form Data Loan</h3>
+
+<form th:action="@{/loan/save}" method="post" th:object="${loan}">
+    <input type="hidden" th:field="*{id}" id="id"><br>
+    <label for="asset_id">AssetID: </label><br>
+    <input type="text" th:field="*{asset_id}" value="" id="asset_id"><br>
+    <label for="status">Status: </label><br>
+    <input type="text" th:field="*{status}" value="" id="status"><br>
+    <label for="submit_date">Submit Date: </label><br>
+    <input type="text" th:field="*{submit_date}" value="" id="submit_date"><br>
+    <input type="submit" value="Simpan Data Loan">
+</form>
+
+</body>
+</html>

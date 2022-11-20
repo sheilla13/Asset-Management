@@ -36,13 +36,13 @@ CREATE TABLE user(
 -- );
 
 CREATE TABLE loan(
-                     id int(11) NOT NULL,
-                     user_id int(11),
-                     asset_id int(11) NOT NULL,
-                     status enum('pending', 'success', 'reject'),
-                     submit_date datetime NOT NULL,
-                     FOREIGN KEY (user_id) REFERENCES user(id),
-                     FOREIGN KEY (asset_id) REFERENCES asset(id)
+    id int(11) NOT NULL PRIMARY KEY auto_increment,
+    user_id int(11),
+    asset_id int(11) NOT NULL,
+    status enum('pending', 'success', 'reject'),
+    submit_date datetime NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (asset_id) REFERENCES asset(id)
 );
 
 INSERT INTO user (id, full_name, email, password) VALUES (1, 'sheilla', 'sheilla@gmail.com', 'Bismillah');
