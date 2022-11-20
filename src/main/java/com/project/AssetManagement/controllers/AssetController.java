@@ -3,7 +3,6 @@ package com.project.AssetManagement.controllers;
 import com.project.AssetManagement.entities.Asset;
 import com.project.AssetManagement.services.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +41,13 @@ public class AssetController {
     @PostMapping("save")
     public String assetSave(Asset asset){
         assetService.saveAsset(asset);
+        return "redirect:/asset";
+    }
+
+    // delete
+    @PostMapping("delete/{id}")
+    public String assetDelete(@PathVariable int id){
+        assetService.deleteAssetById(id);
         return "redirect:/asset";
     }
 }

@@ -13,6 +13,9 @@ public interface AssetService {
     // find by id
     public Asset findAssetById(int id);
 
-    // add
+    // save asset
     public boolean saveAsset(Asset asset);
+
+    // delete
+    public boolean deleteAssetById(int id);
 }
