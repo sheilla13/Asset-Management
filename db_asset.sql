@@ -13,11 +13,11 @@ CREATE TABLE asset(
     serial_number varchar(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE loan_master(
-	id int(11) NOT NULL PRIMARY KEY auto_increment,
-    status enum('pending', 'success', 'reject'),
-    submit_date datetime NOT NULL
-);
+-- CREATE TABLE loan_master(
+-- 	id int(11) NOT NULL PRIMARY KEY auto_increment,
+--     status enum('pending', 'success', 'reject'),
+--     submit_date datetime NOT NULL
+-- );
 
 CREATE TABLE user(
 	id int(11) NOT NULL PRIMARY KEY auto_increment,
@@ -26,13 +26,23 @@ CREATE TABLE user(
     password varchar(255) NOT NULL
 );
 
-CREATE TABLE loan_detail(
-	loan_master_id int(11) NOT NULL,
-    user_id int(11) NOT NULL,
-    asset_id int(11) NOT NULL,
-    FOREIGN KEY (loan_master_id) REFERENCES loan_master(id),
-    FOREIGN KEY (user_id) REFERENCES user(id),
-    FOREIGN KEY (asset_id) REFERENCES asset(id)
+-- CREATE TABLE loan_detail(
+-- 	loan_master_id int(11) NOT NULL,
+--     user_id int(11) NOT NULL,
+--     asset_id int(11) NOT NULL,
+--     FOREIGN KEY (loan_master_id) REFERENCES loan_master(id),
+--     FOREIGN KEY (user_id) REFERENCES user(id),
+--     FOREIGN KEY (asset_id) REFERENCES asset(id)
+-- );
+
+CREATE TABLE loan(
+                     id int(11) NOT NULL,
+                     user_id int(11),
+                     asset_id int(11) NOT NULL,
+                     status enum('pending', 'success', 'reject'),
+                     submit_date datetime NOT NULL,
+                     FOREIGN KEY (user_id) REFERENCES user(id),
+                     FOREIGN KEY (asset_id) REFERENCES asset(id)
 );
 
 INSERT INTO user (id, full_name, email, password) VALUES (1, 'sheilla', 'sheilla@gmail.com', 'Bismillah');
