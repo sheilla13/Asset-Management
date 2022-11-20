@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid CornflowerBlue;
+            border-radius: 4px;
+        }
+
+        input[type=submit]{
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Form Data Aset</h3>
+
+<form th:action="@{/asset/save}" method="post" th:object="${asset}">
+    <label for="name">Nama Aset: </label><br>
+    <input type="text" th:field="*{name}" value="" id="name"><br>
+    <label for="serial_number">Serial Number: </label><br>
+    <input type="text" th:field="*{serial_number}" value="" id="serial_number"><br>
+    <input type="submit" value="Simpan Data Aset">
+</form>
+
+</body>
+</html>
