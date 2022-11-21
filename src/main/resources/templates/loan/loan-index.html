@@ -29,7 +29,7 @@
         <td th:text="${loan.submit_date}"></td>
         <td>
             <!-- tombol update-->
-            <a stretched-link th:href="@{loan/form/{id} (id = ${loan.id})}" class="btn btn-warning">Update</a>
+            <a stretched-link th:href="@{loan/approval/{id} (id = ${loan.id})}" class="btn btn-warning">Approval</a>
 
             <!-- tombol delete -->
             <form th:action="@{/loan/delete/{id} (id = ${loan.id})}" method="post">

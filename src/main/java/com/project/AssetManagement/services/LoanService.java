@@ -18,4 +18,6 @@ public interface LoanService {
 
     // delete
     public boolean deleteLoanById(int id);
+
+    public boolean approval(int id);
 }

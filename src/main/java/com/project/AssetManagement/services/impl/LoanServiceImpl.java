@@ -38,4 +38,15 @@ public class LoanServiceImpl implements LoanService {
         loanRepository.deleteById(id);
         return !loanRepository.findById(id).isPresent();
     }
+
+    @Override
+    public boolean approval(int id) {
+        // cari data by id
+        Loan loan = loanRepository.findById(id).get();
+        // ganti data yang dibutuhkan
+        loan.setDelete("success");
+        // di save
+        loanRepository.save(loan);
+        return loanRepository.findById(loan.getId()).isPresent();
+    }
 }

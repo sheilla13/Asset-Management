@@ -24,7 +24,6 @@ public class Loan {
     @Column(name = "submit_date")
     private String submit_date;
 
-
     public int getId() {
         return id;
     }
@@ -58,5 +57,9 @@ public class Loan {
 
     public void setAsset_id(int asset_id) {
         this.asset_id = asset_id;
+    }
+
+    public void setDelete(String delete) {
+        this.status = delete;
     }
 }

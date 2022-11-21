@@ -48,4 +48,13 @@ public class LoanController {
         loanService.deleteLoanById(id);
         return "redirect:/loan";
     }
+
+    @PostMapping("approval/{id}")
+    public String approvalLoan(@PathVariable int id) {
+        boolean result = loanService.approval(id);
+        if(result != false) {
+            return "redirect:/loan";
+        }
+        return "redirect:/loan";
+    }
 }
