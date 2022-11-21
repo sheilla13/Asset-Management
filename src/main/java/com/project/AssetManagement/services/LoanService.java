@@ -7,6 +7,19 @@ import java.util.List;
 
 @Repository
 public interface LoanService {
-//    get all
+    // get all
     public List<Loan> findAllLoans();
+
+    // find by id
+    public Loan findLoanById(int id);
+
+    // save Loan
+    public boolean saveLoan(Loan loan);
+
+    // delete
+    public boolean deleteLoanById(int id);
+
+    //approval
+    public boolean approve(int id);
+    public boolean reject(int id);
 }

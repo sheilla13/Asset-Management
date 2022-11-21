@@ -13,10 +13,10 @@ public class Loan {
     @Column(name = "id")
     private int id;
 
-    //@ManyToOne
-    //@JoinColumn(name = "asset_id")
-    // private Asset asset_id;
-    private int asset_id;
+    @ManyToOne
+    @JoinColumn(name = "asset_id")
+     private Asset asset;
+//    private int asset_id;
 
     @Column(name = "status")
     private String status;
@@ -52,11 +52,20 @@ public class Loan {
         this.submit_date = submit_date;
     }
 
-    public int getAsset_id() {
-        return asset_id;
+    public Asset getAsset() {
+        return asset;
     }
 
-    public void setAsset_id(int asset_id) {
-        this.asset_id = asset_id;
+    public void setAsset(Asset asset) {
+        this.asset = asset;
     }
+
+
+//    public int getAsset_id() {
+//        return asset_id;
+//    }
+//
+//    public void setAsset_id(int asset_id) {
+//        this.asset_id = asset_id;
+//    }
 }

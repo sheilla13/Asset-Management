@@ -5,11 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "asset")
 public class Asset {
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String serial_number;
+    private boolean status;
 
 
     public int getId() {
@@ -34,5 +35,13 @@ public class Asset {
 
     public void setSerial_number(String serial_number) {
         this.serial_number = serial_number;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
